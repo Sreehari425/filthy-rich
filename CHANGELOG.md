@@ -2,6 +2,18 @@
 
 Active since v0.8.5.
 
+### v0.14.2
+
+Internal changes:
+
+- Removed the use of `Arc` from the inner `readhalf` and `writehalf` fields of `DiscordSock` since the main loop doesn't cross thread boundaries.
+
+### v0.14.1
+
+Internal changes:
+
+- Removed unsafe buffer init from the internal `DiscordSock::read_frame` function and implement a `MAX_FRAME_SIZE`, which, if crossed, returns a `DiscordSockError::PayloadTooLarge` error from the function (thanks to @Sreehari425) [(see pull request)](https://github.com/hitblast/filthy-rich/pull/6).
+
 ### v0.14.0
 
 New features:
